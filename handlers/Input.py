@@ -17,6 +17,12 @@ class Input(Handler):
         EMAIL = re.compile(r"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$")
         gearNum = self.request.get("number").upper()
         email = self.request.get("holder").lower()
+        if email[-2:] == '@c':
+            email += 'ollege.harvard.edu'
+        if email[-7:] == '@college':
+            email += '.harvard.edu'
+        if email[-2:] == '@g':
+            email += 'mail.com'
         if not EMAIL.match(email):
             self.write_form(error = 'This is not a valid email')
             return
