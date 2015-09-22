@@ -8,7 +8,7 @@ class Person(db.Model):
     created = db.DateTimeProperty(auto_now_add=True)
 class Gear(db.Model):
     number = db.StringProperty(required=True)
-    description = db.TextProperty(required=True)
+    description = db.TextProperty()
     holder = db.ReferenceProperty(Person)
     holderName = db.StringProperty(required=False)
     returnDate = db.DateTimeProperty()

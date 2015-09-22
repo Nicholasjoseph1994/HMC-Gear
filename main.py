@@ -10,15 +10,15 @@ from google.appengine.api import memcache
 sys.path.append('handlers')
 sys.path.append('db')
 from Input import Input
-from View import View
 from Return import Return
 from AddGear import AddGear
 from Email import Email
+from PayDues import PayDues
 
 application = webapp2.WSGIApplication([('/input', Input),
 								('/return', Return),
-                                ('/view', View),
 								('/addGear', AddGear),
+                                ('/payDues', PayDues),
                                 ('/', Input),
 								('/email', Email)
                                 ],
