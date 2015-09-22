@@ -20,10 +20,6 @@ class Input(Handler):
 		if not EMAIL.match(email):
 			self.write_form(error = 'This is not a valid email')
 			return
-		password = self.request.get('password')
-		if password != constants.PASSWORD:
-			self.write_form(error = 'Wrong password!')
-			return
 		numDays = int(self.request.get('days'))
 		personQuery = db.GqlQuery("SELECT * FROM Person WHERE email = :1", email)
 		person = Person(email = email)
